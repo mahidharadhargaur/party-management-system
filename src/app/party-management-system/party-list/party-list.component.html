@@ -1,0 +1,50 @@
+<button mat-raised-button color="primary" (click)="addNew()">Add New party</button>
+  
+
+<table mat-table [dataSource]="partiesList$ | async">
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.name }} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="company_name">
+    <mat-header-cell *matHeaderCellDef> Company Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{ element.company_name }} </mat-cell>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef> Username </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.userid.username }}
+    </mat-cell>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="anniversary_date">
+    <mat-header-cell *matHeaderCellDef> Anniversary Date </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      {{ element.anniversary_date }}
+    </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="actions">
+    <mat-header-cell *matHeaderCellDef> </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+      <div class="d-flex gap-2">
+        <mat-icon (click)="view(element.id)" class="cursor-pointer"
+          >visibility</mat-icon
+        >
+        <mat-icon (click)="edit(element.id)" class="cursor-pointer"
+          >edit</mat-icon
+        >
+        <mat-icon (click)="delete(element.id)" class="cursor-pointer"
+          >delete</mat-icon
+        >
+      </div>
+    </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</table>

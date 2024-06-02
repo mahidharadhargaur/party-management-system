@@ -1,0 +1,134 @@
+@if (partyDetails) {
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <img
+        #img
+        class="w-100"
+        [src]="partyDetails.image"
+        (error)="img.src = defaultImageUrl"
+      />
+    </div>
+    <div class="col-6">
+      <form [formGroup]="partyForm">
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="Name" [formControlName]="'name'" />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Mobile Number</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Mobile Number"
+              [formControlName]="'mobile_no'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Company Name</mat-label>
+            <input
+              matInput
+              placeholder="Company name"
+              [formControlName]="'company_name'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Telephone Number</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Telephone Number"
+              [formControlName]="'telephone_no'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Whatsapp Number</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Whatsapp Number"
+              [formControlName]="'whatsapp_no'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" [formControlName]="'email'" />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Remark</mat-label>
+            <input matInput placeholder="Remark" [formControlName]="'remark'" />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Date of Birth</mat-label>
+            <input
+              matInput
+              placeholder="Date of Birth"
+              [formControlName]="'date_of_birth'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Anniversary Date</mat-label>
+            <input
+              matInput
+              placeholder="Anniversary Date"
+              [formControlName]="'anniversary_date'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>GSTIN</mat-label>
+            <input matInput placeholder="GSTIN" [formControlName]="'gstin'" />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Pan Number</mat-label>
+            <input
+              matInput
+              placeholder="Pan Number"
+              [formControlName]="'pan_no'"
+            />
+          </mat-form-field>
+        </div>
+        <div class="mt-2">
+          <mat-form-field class="w-100">
+            <mat-label>Credit Limit</mat-label>
+            <input
+              matInput
+              type="number"
+              placeholder="Credit Limit"
+              [formControlName]="'credit_limit'"
+            />
+          </mat-form-field>
+        </div>
+
+        <div class="mt-3">
+          <button mat-raised-button color="primary" (click)="save()">
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+}

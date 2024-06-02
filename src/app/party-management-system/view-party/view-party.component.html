@@ -1,0 +1,25 @@
+@if (partyDetails) {
+
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-6">
+      <img
+        #img
+        class="w-100"
+        [src]="partyDetails.image"
+        (error)="img.src = defaultImageUrl"
+      />
+    </div>
+    <div class="col-6">
+      @for (item of partyFields; track $index) {
+
+      <div class="d-flex">
+        <div>{{ item.name }} :</div>
+        <div>{{ partyDetails[item.key] }}</div>
+      </div>
+      }
+    </div>
+  </div>
+</div>
+
+}
