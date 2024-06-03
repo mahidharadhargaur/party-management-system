@@ -6,7 +6,7 @@
       <img
         #img
         class="w-100"
-        [src]="partyDetails.image"
+        [src]="imageLink"
         (error)="img.src = defaultImageUrl"
       />
     </div>
@@ -15,7 +15,12 @@
 
       <div class="d-flex">
         <div>{{ item.name }} :</div>
+        @if (item.children) {
+        <pre>{{ partyDetails[item.key] | json }}</pre>
+        } @else {
+
         <div>{{ partyDetails[item.key] }}</div>
+        }
       </div>
       }
     </div>

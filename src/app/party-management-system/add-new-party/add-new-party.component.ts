@@ -36,10 +36,18 @@ export class AddNewPartyComponent implements OnInit {
       gstin: new FormControl(),
       pan_no: new FormControl(),
       credit_limit: new FormControl(),
+      image: new FormControl(),
     });
   }
 
+  public selectFile(event: any) {
+    console.log(event);
+
+    this.partyForm.get('image')?.setValue(event.target.files[0]);
+  }
+
   public save() {
+    console.log(this.partyForm.value);
     this.partyService
       .addNew({
         ...this.partyForm.value,

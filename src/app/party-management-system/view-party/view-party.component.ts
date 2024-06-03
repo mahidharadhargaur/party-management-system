@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { PartyManagementSystemService } from '../services/party-management-system.service';
 import { Observable, of } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
+import { BASE_URL } from '../../core';
 
 @Component({
   selector: 'app-view-party',
@@ -16,7 +17,6 @@ export class ViewPartyComponent implements OnInit {
 
   defaultImageUrl =
     'https://images.pexels.com/photos/1751279/pexels-photo-1751279.jpeg?auto=compress&cs=tinysrgb&w=600';
-
 
   public partyFields = [
     {
@@ -71,6 +71,16 @@ export class ViewPartyComponent implements OnInit {
       name: 'Credit Limit',
       key: 'credit_limit',
     },
+    {
+      name: 'Bank',
+      key: 'bank_id',
+      children: true,
+    },
+    {
+      name: 'Address',
+      key: 'address',
+      children: true,
+    },
   ];
 
   ngOnInit(): void {
@@ -80,5 +90,10 @@ export class ViewPartyComponent implements OnInit {
         this.partyDetails = res;
       },
     });
+  }
+
+  public get imageLink() {
+    if (!this.partyDetails.image) return null;
+    return `${BASE_URL}${this.partyDetails.image}`;
   }
 }
